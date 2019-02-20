@@ -1,0 +1,35 @@
+public static string ParseFast(string s)
+    {
+        string sss = String.Empty;
+
+        for (var i = 0; i < s.Length; i++)
+        {
+            int bbb;
+            if (int.TryParse(s[i].ToString(), out bbb))
+            {
+                sss += s[i].ToString();
+            }
+
+        }
+        return sss;
+    }
+
+    public void RicardoQuaresma()
+    {
+        for (int i = 0; i < asd.childCount; i++)
+        {
+            if (asd.GetChild(i).tag == "Laser")
+            {
+                int qqq777;
+                // int asd1 = ParseFast(gameObject.name.ToString());
+                string dffdsfsd = ParseFast(asd.GetChild(i).gameObject.name.ToString());
+                if (int.TryParse(dffdsfsd, out qqq777))
+                {
+                    print(qqq777);
+                    asd.GetChild(i).GetComponent<LaserReaction>().followingMachine = GameObject.Find("MainLaser ("+ (qqq777+1).ToString() + ")");
+                }
+
+                // asd.GetComponent<LaserReaction>().followingMachine = GameObject.Find();
+            }
+        }
+    }

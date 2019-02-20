@@ -1,0 +1,6 @@
+Vector3 _diretion = (Vector3.zero - transform.position).normalized;
+
+
+        Quaternion _lookRotation = Quaternion.LookRotation(_diretion);
+        transform.rotation = _lookRotation;
+        transform.eulerAngles = new Vector3(0, transform.localEulerAngles.y + 90, 0);
