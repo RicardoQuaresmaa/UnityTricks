@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class FPS : MonoBehaviour
+{
+
+    double frameCount = 0;
+    double dt = 0.0f;
+    double fps = 0.0f;
+    double updateRate = 4.0f;
+    public TMP_Text FPSs;
+
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
+
+    private void Update()
+    {
+        frameCount++;
+        dt += Time.deltaTime;
+        if (dt > 1.0 / updateRate)
+        {
+            fps = frameCount / dt;
+            frameCount = 0;
+            dt -= 1.0 / updateRate;
+            FPSs.text = fps.ToString().Substring(0, 5);
+        }
+    }
+}
